@@ -1,0 +1,426 @@
+/* --- Reset & Base --- */
+* {
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* --- Theme Colors --- */
+:root {
+  --bg: #fff;
+  --text: #000;
+  --header-bg: #111;
+  --header-text: #fff;
+  --footer-bg: #111;
+  --footer-text: #fff;
+  --link: #007bff;
+  --link-hover: #0056b3;
+  --card-bg: #f9f9f9;
+  --card-shadow: rgba(0,0,0,0.1);
+  --btn-bg: #000;
+  --btn-text: #fff;
+}
+
+[data-theme="dark"] {
+  --bg: #121212;
+  --text: #eee;
+  --header-bg: #000;
+  --header-text: #fff;
+  --footer-bg: #000;
+  --footer-text: #fff;
+  --link: #66aaff;
+  --link-hover: #99ccff;
+  --card-bg: #1e1e1e;
+  --card-shadow: rgba(0,0,0,0.7);
+  --btn-bg: #222;
+  --btn-text: #eee;
+}
+
+/* --- Header --- */
+header {
+  background: var(--header-bg);
+  color: var(--header-text);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.25rem;
+}
+
+nav a {
+  color: var(--header-text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--link-hover);
+  outline: none;
+}
+
+/* --- Main Content --- */
+main.content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+  animation: fadeIn 0.7s ease forwards;
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* --- Footer --- */
+footer {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+  text-align: center;
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+}
+
+/* --- Projects Grid --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px var(--card-shadow);
+  outline: none;
+}
+
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #ccc;
+}
+
+.project-content {
+  padding: 1rem 1.25rem;
+}
+
+.project-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.project-description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+/* --- Blog Cards --- */
+.blog-post {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  padding: 1.5rem 2rem;
+  margin-bottom: 2rem;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.blog-post:hover,
+.blog-post:focus-within {
+  box-shadow: 0 8px 24px var(--card-shadow);
+  outline: none;
+}
+
+.blog-post h3 {
+  margin-top: 0;
+}
+
+.blog-post time {
+  color: var(--link);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* --- About Me Page --- */
+.about-me {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-subheading {
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  border-bottom: 2px solid var(--link);
+  display: inline-block;
+  padding-bottom: 0.2rem;
+}
+
+/* --- Contact Form --- */
+form {
+  max-width: 500px;
+  margin: 1rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--link);
+  box-shadow: 0 0 6px var(--link);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+button[type="submit"] {
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover,
+button[type="submit"]:focus {
+  background: var(--link-hover);
+  outline: none;
+  color: #fff;
+}
+
+/* --- Theme Toggle Button --- */
+#theme-toggle {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 50%;
+  width: 3.3rem;
+  height: 3.3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 999;
+}
+
+#theme-toggle:hover,
+#theme-toggle:focus {
+  background: var(--link-hover);
+  color: #fff;
+  outline: none;
+}
+
+/* --- Button Styles (.btn) --- */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.8rem;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: 2px solid var(--btn-bg);
+  border-radius: 10px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 
+    background-color 0.3s ease, 
+    color 0.3s ease, 
+    border-color 0.3s ease, 
+    transform 0.2s ease;
+  user-select: none;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--link);
+  color: #fff;
+  border-color: var(--link);
+  outline: none;
+  transform: scale(1.05);
+}
+
+
+.direct-contact {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-size: 1.1rem;
+}
+
+.email-pill {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--accent-color);
+  color: var(--bg-color);
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.email-pill:hover {
+  background: var(--accent-color-hover, #ffffff);
+  color: var(--text-color);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+
+/* Read More button styling */
+.btn-read-more {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  margin-top: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--btn-text-color, #fff);
+  background-color: var(--btn-bg-color, #007acc);
+  border: 2px solid var(--btn-bg-color, #007acc);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hover and focus */
+.btn-read-more:hover,
+.btn-read-more:focus {
+  background-color: transparent;
+  color: var(--btn-bg-color, #007acc);
+  outline: none;
+}
+
+/* Light theme variables */
+html[data-theme="light"] {
+  --btn-bg-color: #007acc;
+  --btn-text-color: #fff;
+}
+
+/* Dark theme variables */
+html[data-theme="dark"] {
+  --btn-bg-color: #3399ff;
+  --btn-text-color: #000;
+}
+
+/* Styled button for the 'here' link */
+.btn-here {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--btn-text-color, #fff);
+  background-color: var(--btn-bg-color, #007acc);
+  border: 2px solid var(--btn-bg-color, #007acc);
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Hover and focus states */
+.btn-here {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--btn-text-color, #fff);
+  background-color: var(--btn-bg-color, #007acc);
+  border: 1.5px solid var(--btn-bg-color, #007acc);
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-here:hover,
+.btn-here:focus {
+  background-color: transparent;
+  color: var(--btn-bg-color, #007acc);
+  outline: none;
+}
+
+html[data-theme="light"] {
+  --btn-bg-color: #007acc;
+  --btn-text-color: #fff;
+}
+
+html[data-theme="dark"] {
+  --btn-bg-color: #3399ff;
+  --btn-text-color: #000;
+}
