@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Almuthanna Shihab | Home</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link rel="icon" href="/static/favicon-dark.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/static/favicon-light.png" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <header>
+    <h1>Almuthanna Shihab</h1>
+    <nav>
+      <ul>
+        <li><a href="/index" aria-label="Home">🏠 Home</a></li>
+        <li><a href="/about-me" aria-label="About Me">👤 About</a></li>
+        <li><a href="/projects" aria-label="Projects">💼 Projects</a></li>
+        <li><a href="/resume" aria-label="Resume">📄 Resume</a></li>
+        <li><a href="blog" aria-label="Blog">📝 Blog</a></li>
+        <li><a href="/contact" aria-label="Contact">📬 Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content" role="main">
+    <h2>Web Developer | Software Developer | Founder @ Nexren</h2>
+    <p>Welcome to my portfolio. I build web apps, tools, and startup tech.</p>
+    <a href="projects.html" class="btn" role="button">See My Work</a>
+
+    <!-- New content below to fill space -->
+
+    <section style="margin-top: 3rem; max-width: 700px;">
+      <h3>About Me</h3>
+      <p>
+        I'm Almuthanna Shihab, a passionate software and web developer specializing in building efficient, modern applications.
+        With a background in Software Development and a keen interest in Finance, I aim to create impactful solutions that combine technology and business.
+      </p>
+    </section>
+
+    <section style="margin-top: 3rem; max-width: 700px;">
+      <h3>What I Do</h3>
+      <ul>
+        <li>Full-stack web development (React, Flask, Python)</li>
+        <li>Mobile app development (React Native)</li>
+        <li>Cloud services and deployment (AWS, Azure, GCP)</li>
+        <li>Data analysis and visualization (Power BI, SQL)</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>&copy; 2025 Almuthanna Shihab</footer>
+
+  <script>
+  const toggleBtn = document.createElement('button');
+  toggleBtn.id = 'theme-toggle';
+  toggleBtn.setAttribute('aria-label', 'Toggle Dark/Light Mode');
+  toggleBtn.title = 'Toggle Dark/Light Mode';
+
+  function setTheme(theme) {
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      toggleBtn.textContent = '☀️';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      toggleBtn.textContent = '🌙';
+    }
+    localStorage.setItem('theme', theme);
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    if (currentTheme === 'dark') {
+      setTheme('light');
+    } else {
+      setTheme('dark');
+    }
+  });
+
+  // Initialize theme on page load
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark' || savedTheme === 'light') {
+    setTheme(savedTheme);
+  } else {
+    // Default to light mode
+    setTheme('light');
+  }
+
+  document.body.appendChild(toggleBtn);
+  </script>
+</body>
+</html>

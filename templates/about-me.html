@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Me | Almuthanna Shihab</title>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+  <link rel="icon" href="/static/favicon-dark.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/static/favicon-light.png" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <header>
+    <h1>Almuthanna Shihab</h1>
+    <nav>
+      <ul>
+        <li><a href="/index" aria-label="Home">🏠 Home</a></li>
+        <li><a href="/about-me" aria-label="About Me">👤 About</a></li>
+        <li><a href="/projects" aria-label="Projects">💼 Projects</a></li>
+        <li><a href="/resume" aria-label="Resume">📄 Resume</a></li>
+        <li><a href="/blog" aria-label="Blog">📝 Blog</a></li>
+        <li><a href="/contact" aria-label="Contact">📬 Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main role="main" class="content fade-in">
+    <section class="about-me">
+      <h2>About Me</h2>
+      <p>Hello! I’m Almuthanna Shihab, a Software Development student at Northern Illinois 
+        University with a passion for coding, finance, and building impactful projects.</p>
+
+      <h3 class="about-subheading">Technical Skills</h3>
+      <p>Proficient in HTML, CSS, JavaScript, React, Python, Flask, C++, and 
+        familiar with tools like VS Code, Heroku, and Render. I’m actively working on 
+        cloud certifications including AWS, Azure, GCP, Power BI, and Kubernetes.</p>
+
+      <h3 class="about-subheading">Professional Experience</h3>
+      <p>I have experience as a Systems Support Analyst, IT Support Technician, and Deck Supervisor, leading teams 
+        and ensuring smooth operations across all positions. I’m also the founder of Nexren, a SaaS agency 
+        that delivers software solutions for small and medium businesses.</p>
+
+      <h3 class="about-subheading">Education</h3>
+      <p>Currently pursuing a degree in Software Development at Northern Illinois University, 
+        balancing academic coursework with real-world projects and internships.</p>
+
+      <h3 class="about-subheading">Personal Goals</h3>
+      <p>My goals include securing internships for experience in software development, 
+        growing my FilesMagic app’s user base through SEO, posting weekly on LinkedIn, 
+        and earning multiple certifications by the end of 2025.</p>
+
+      <h3 class="about-subheading">Interests</h3>
+      <p>Outside of tech, I’m passionate about fitness, nutrition, financial markets, 
+        continuous learning, and contributing to open-source projects.</p>
+
+      <h3 class="about-subheading">Certifications</h3>
+      <ul>
+        <li>Microsoft Office Specialist: Access</li>
+        <li>Microsoft Office Specialist: Excel</li>
+        <li>Accounting & Financial Statement Analysis</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>&copy; 2025 Almuthanna Shihab</footer>
+
+  <script>
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'theme-toggle';
+    toggleBtn.setAttribute('aria-label', 'Toggle Dark/Light Mode');
+    toggleBtn.title = 'Toggle Dark/Light Mode';
+
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleBtn.textContent = '☀️';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        toggleBtn.textContent = '🌙';
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      setTheme(savedTheme);
+    } else {
+      setTheme('light');
+    }
+
+    document.body.appendChild(toggleBtn);
+  </script>
+</body>
+</html>

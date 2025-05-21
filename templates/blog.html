@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog | Almuthanna Shihab</title>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+  <link rel="icon" href="/static/favicon-dark.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="/static/favicon-light.png" media="(prefers-color-scheme: dark)">
+</head>
+<body>
+  <header>
+    <h1>Almuthanna Shihab</h1>
+    <nav>
+      <ul>
+        <li><a href="/index" aria-label="Home">🏠 Home</a></li>
+        <li><a href="/about-me" aria-label="About Me">👤 About</a></li>
+        <li><a href="/projects" aria-label="Projects">💼 Projects</a></li>
+        <li><a href="/resume" aria-label="Resume">📄 Resume</a></li>
+        <li><a href="/blog" aria-label="Blog">📝 Blog</a></li>
+        <li><a href="/contact" aria-label="Contact">📬 Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main role="main" class="content fade-in">
+    <h2>Blog</h2>
+    <div class="blog-posts">
+      <!--Add more here-->
+
+      <article class="blog-post" tabindex="0">
+        <h3>FilesMagic: My Completed File Converter Web App</h3>
+        <time datetime="2025-05-21">May 21, 2025</time>
+        <p>I’m excited to announce that I have successfully completed FilesMagic, a web application designed to simplify file conversion tasks.</p>
+        <a href="/filesmagic" class="btn-read-more">Read More</a>
+      </article>
+    </div>
+  </main>
+
+  <footer>&copy; 2025 Almuthanna Shihab</footer>
+
+  <script>
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'theme-toggle';
+    toggleBtn.setAttribute('aria-label', 'Toggle Dark/Light Mode');
+    toggleBtn.title = 'Toggle Dark/Light Mode';
+
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleBtn.textContent = '☀️';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        toggleBtn.textContent = '🌙';
+      }
+      localStorage.setItem('theme', theme);
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      setTheme(savedTheme);
+    } else {
+      setTheme('light');
+    }
+
+    document.body.appendChild(toggleBtn);
+  </script>
+</body>
+</html>
