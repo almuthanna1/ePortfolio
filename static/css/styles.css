@@ -114,22 +114,29 @@ footer {
 
 /* --- Projects Grid --- */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 2rem;
-  margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 400px;
 }
 
 .project-card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px var(--card-shadow);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
-  cursor: pointer;
+    max-width: 600px; 
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--card-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border: 1px solid black;
 }
+
+/* All other project-related styles remain the same. */
 
 .project-card:hover,
 .project-card:focus-within {
@@ -140,9 +147,12 @@ footer {
 
 .project-image {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  /* Increase the height to make the image larger */
+  height: 250px;
+  object-fit: contain;
   border-bottom: 1px solid #ccc;
+  background-color: #000;
+  display: block;
 }
 
 .project-content {
@@ -160,6 +170,30 @@ footer {
   font-size: 1rem;
   line-height: 1.4;
   color: var(--text);
+}
+
+/* Base styles for the link in light mode */
+/* This will be the default color if the media query is not supported or if the user prefers light mode */
+[data-theme="light"] .project-title a {
+  color: black;
+}
+
+[data-theme="dark"] .project-title a {
+  color: white;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* --- Blog Cards --- */
@@ -423,4 +457,22 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
   --btn-bg-color: #3399ff;
   --btn-text-color: #000;
+}
+
+.cert-list a {
+  color: black;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.cert-list a:hover {
+  text-decoration: underline;
+}
+
+[data-theme="light"] .cert-list a {
+  color: black;
+}
+
+[data-theme="dark"] .cert-list a {
+  color: #8ab4f8;
 }
