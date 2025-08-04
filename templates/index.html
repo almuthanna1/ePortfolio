@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Almuthanna Shihab | Home</title>
-  <link rel="stylesheet" href="/static/css/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FilesMagic Completed | Almuthanna Shihab</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
   <link rel="icon" href="/static/favicon-dark.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" href="/static/favicon-light.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/static/favicon-light.png" media="(prefers-color-scheme: dark)" >
 </head>
 <body>
   <header>
@@ -17,77 +17,79 @@
         <li><a href="/about-me" aria-label="About Me">👤 About</a></li>
         <li><a href="/projects" aria-label="Projects">💼 Projects</a></li>
         <li><a href="/resume" aria-label="Resume">📄 Resume</a></li>
-        <li><a href="blog" aria-label="Blog">📝 Blog</a></li>
+        <li><a href="/blog" aria-label="Blog">📝 Blog</a></li>
         <li><a href="/contact" aria-label="Contact">📬 Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="content" role="main">
-    <h2>Web Developer | Software Developer | Founder @ Nexren</h2>
-    <p>Welcome to my portfolio. I build web apps, tools, and startup tech.</p>
-    <a href="/projects" class="btn" role="button">See My Work</a>
+  <main role="main" class="content fade-in" style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+    <article>
+      <h2>FilesMagic: My Completed File Converter Web App</h2>
+      <p>I’m excited to announce that I have successfully completed <strong>FilesMagic</strong>, a web application designed to simplify 
+        file conversion tasks.</p>
 
-    <!-- New content below to fill space -->
+      <h3>What is FilesMagic?</h3>
+      <p>FilesMagic is a versatile file converter that supports multiple file formats, enabling users to quickly and easily convert files 
+        without needing complex software installations. Built with a modern tech stack including <strong>React</strong> for the frontend and 
+        <strong>Flask</strong> for the backend, FilesMagic delivers a smooth, responsive user experience.</p>
 
-    <section style="margin-top: 3rem; max-width: 700px;">
-      <h3>About Me</h3>
-      <p>
-        I'm Almuthanna Shihab, a passionate software and web developer specializing in building efficient, modern applications.
-        With a background in Software Development and a keen interest in Finance, I aim to create impactful solutions that combine technology and business.
-      </p>
-    </section>
-
-    <section style="margin-top: 3rem; max-width: 700px;">
-      <h3>What I Do</h3>
+      <h3>Key Features</h3>
       <ul>
-        <li>Full-stack web development (React, Flask, Python)</li>
-        <li>Mobile app development (React Native)</li>
-        <li>Cloud services and deployment (AWS, Azure, GCP)</li>
-        <li>Data analysis and visualization (Power BI, SQL)</li>
+        <li>Fast and reliable file conversion</li>
+        <li>User-friendly interface</li>
+        <li>Secure upload and processing</li>
+        <li>Support for popular file formats</li>
       </ul>
-    </section>
 
+      <h3>What I Learned</h3>
+      <p>This project was an excellent opportunity to deepen my skills in full-stack development, API integration, and cloud deployment. 
+        I also focused heavily on SEO and performance optimization to ensure FilesMagic is not just functional but discoverable and efficient.</p>
+
+      <h3>What’s Next?</h3>
+      <p>I plan to continue improving FilesMagic by adding more file formats, enhancing the UI, and implementing advanced features like 
+        batch conversion and user authentication.</p>
+
+      <p>Thank you to everyone who supported me along the way! Feel free to check out FilesMagic <a href="https://filesmagic.com" target="_blank" rel="noopener noreferrer" class="btn-here">here</a>.</p>
+    </article>
   </main>
 
-  <footer>&copy; 2025 Almuthanna Shihab</footer>
+  <footer>&copy; 2025 Almuthanna Shihab. All rights reserved.</footer>
 
   <script>
-  const toggleBtn = document.createElement('button');
-  toggleBtn.id = 'theme-toggle';
-  toggleBtn.setAttribute('aria-label', 'Toggle Dark/Light Mode');
-  toggleBtn.title = 'Toggle Dark/Light Mode';
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id = 'theme-toggle';
+    toggleBtn.setAttribute('aria-label', 'Toggle Dark/Light Mode');
+    toggleBtn.title = 'Toggle Dark/Light Mode';
 
-  function setTheme(theme) {
-    if (theme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      toggleBtn.textContent = '☀️';
-    } else {
-      document.documentElement.setAttribute('data-theme', 'light');
-      toggleBtn.textContent = '🌙';
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        toggleBtn.textContent = '☀️';
+      } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        toggleBtn.textContent = '🌙';
+      }
+      localStorage.setItem('theme', theme);
     }
-    localStorage.setItem('theme', theme);
-  }
 
-  toggleBtn.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    if (currentTheme === 'dark') {
+    toggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      if (currentTheme === 'dark') {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      setTheme(savedTheme);
+    } else {
       setTheme('light');
-    } else {
-      setTheme('dark');
     }
-  });
 
-  // Initialize theme on page load
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark' || savedTheme === 'light') {
-    setTheme(savedTheme);
-  } else {
-    // Default to light mode
-    setTheme('light');
-  }
-
-  document.body.appendChild(toggleBtn);
+    document.body.appendChild(toggleBtn);
   </script>
 </body>
 </html>
