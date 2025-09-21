@@ -7,6 +7,39 @@
   <link rel="stylesheet" href="/static/css/styles.css"/>
   <link rel="icon" href="/static/favicon-dark.png" media="(prefers-color-scheme: light)">
   <link rel="icon" href="/static/favicon-light.png" media="(prefers-color-scheme: dark)">
+
+  <style>
+    /* --- Projects responsive order/layout --- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr; /* mobile: top -> bottom */
+      gap: 16px;
+    }
+
+    @media (min-width: 600px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+    }
+
+    .project-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      /* Uncomment if you want uniform aspect tiles:
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      */
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -25,34 +58,40 @@
 
   <main role="main" class="content fade-in">
     <h2>Projects</h2>
+
     <section class="projects-grid">
       <article class="project-card">
-  <img src="/static/filesmagic.png" alt="FilesMagic Project" class="project-image" />
-  <div class="project-content">
-    <h3 class="project-title"><a href="https://www.filesmagic.com">FilesMagic</a></h3>
-    <p class="project-description">A versatile file converter web and mobile app that allows users to convert between 
-      multiple file formats with ease. Built with React, Flask, and deployed on Heroku and Render.</p>
-  </div>
-</article>
-
-      
-      <!--<article class="project-card" tabindex="0">
-        <img src="https://via.placeholder.com/400x180?text=Fresh+Pantry" alt="Fresh Pantry iOS App" class="project-image" />
+        <img src="/static/filesmagic.png" alt="FilesMagic Project" class="project-image" />
         <div class="project-content">
-          <h3 class="project-title">Fresh Pantry</h3>
-          <p class="project-description">An iOS app built with React Native for managing grocery lists, tracking pantry items, and 
-            reducing food waste through smart notifications and easy sharing.</p>
+          <h3 class="project-title"><a href="https://www.filesmagic.com">FilesMagic</a></h3>
+          <p class="project-description">
+            A versatile file converter web and mobile app that allows users to convert between 
+            multiple file formats with ease. Built with React, Flask, and deployed on Heroku and Render.
+          </p>
         </div>
-      </article>-->
+      </article>
 
-      <!--<article class="project-card" tabindex="0">
+      <article class="project-card" tabindex="0">
+        <img src="/static/fresh-pantry.png" alt="Fresh Pantry iOS App" class="project-image" />
+        <div class="project-content">
+          <h3 class="project-title"><a href="https://www.freshpantry.app">Fresh Pantry</a></h3>
+          <p class="project-description">
+            An iOS app built with React Native for managing grocery lists, tracking pantry items, and 
+            reducing food waste through smart notifications and easy sharing.
+          </p>
+        </div>
+      </article>
+
+      <article class="project-card" tabindex="0">
         <img src="/static/nexren-logo.png" alt="Nexren SaaS Agency" class="project-image" />
         <div class="project-content">
-          <h3 class="project-title">Nexren</h3>
-          <p class="project-description">A SaaS agency I founded, focusing on delivering custom software solutions for small to medium 
-            businesses, including web apps, APIs, and automation tools.</p>
+          <h3 class="project-title"><a href="https://www.thenexren.com">Nexren</a></h3>
+          <p class="project-description">
+            A SaaS agency I founded, focusing on delivering custom software solutions for small to medium 
+            businesses, including web apps, APIs, and automation tools.
+          </p>
         </div>
-      </article>-->
+      </article>
     </section>
   </main>
 
@@ -95,4 +134,3 @@
   </script>
 </body>
 </html>
-
